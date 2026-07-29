@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kimberly & Michael | April 23, 2027</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&family=Tenor+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- PASSWORD GATE -->
+  <section class="gate" id="gate">
+    <div class="gate-box">
+      <p class="gate-title">Enter your invitation password</p>
+      <input type="text" class="gate-input" id="gate-input" placeholder="Password" autocomplete="off">
+      <button class="gate-button" id="gate-button">Enter</button>
+      <p class="gate-error" id="gate-error"></p>
+    </div>
+  </section>
+
+  <!-- MAIN SITE (hidden until unlocked) -->
+  <div id="site" class="hidden">
+
+    <section class="hero">
+
+      <!-- back vine layer -->
+      <svg class="vine-layer left-back" viewBox="0 0 200 500" xmlns="http://www.w3.org/2000/svg">
+        <path class="vine-stroke" d="M100,0 C90,60 130,100 95,150 C60,200 110,240 85,300 C60,360 100,400 80,460"/>
+        <g transform="translate(95,70) rotate(-30) scale(1.07,1.00)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(115,140) rotate(35) scale(1.20,1.12)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(75,220) rotate(-20) scale(1.00,0.88)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(105,320) rotate(28) scale(1.13,1.00)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(70,400) rotate(-15) scale(1.00,0.88)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+      </svg>
+      <svg class="vine-layer right-back" viewBox="0 0 200 500" xmlns="http://www.w3.org/2000/svg">
+        <path class="vine-stroke" d="M100,0 C90,60 130,100 95,150 C60,200 110,240 85,300 C60,360 100,400 80,460"/>
+        <g transform="translate(95,70) rotate(-30) scale(1.07,1.00)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(115,140) rotate(35) scale(1.20,1.12)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(75,220) rotate(-20) scale(1.00,0.88)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(105,320) rotate(28) scale(1.13,1.00)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+      </svg>
+
+      <!-- mid vine layer -->
+      <svg class="vine-layer left-mid" viewBox="0 0 200 500" xmlns="http://www.w3.org/2000/svg">
+        <path class="vine-stroke" d="M80,0 C110,50 60,90 90,140 C120,190 70,230 95,280 C120,330 75,370 90,430"/>
+        <g transform="translate(88,45) rotate(20) scale(1.13,1.00)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(65,105) rotate(-32) scale(1.27,1.12)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(92,165) rotate(25) scale(0.93,0.88)"><path class="vine-leaf gold-tip" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(68,225) rotate(-22) scale(1.20,1.12)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(93,290) rotate(24) scale(1.13,1.00)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(72,360) rotate(-20) scale(1.07,1.00)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+      </svg>
+      <svg class="vine-layer right-mid" viewBox="0 0 200 500" xmlns="http://www.w3.org/2000/svg">
+        <path class="vine-stroke" d="M80,0 C110,50 60,90 90,140 C120,190 70,230 95,280 C120,330 75,370 90,430"/>
+        <g transform="translate(88,45) rotate(20) scale(1.13,1.00)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(65,105) rotate(-32) scale(1.27,1.12)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(92,165) rotate(25) scale(0.93,0.88)"><path class="vine-leaf gold-tip" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(68,225) rotate(-22) scale(1.20,1.12)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(93,290) rotate(24) scale(1.13,1.00)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+      </svg>
+
+      <!-- front vine layer -->
+      <svg class="vine-layer left" viewBox="0 0 220 520" xmlns="http://www.w3.org/2000/svg">
+        <path class="vine-stroke" d="M60,0 C75,70 40,110 65,170 C90,230 45,270 70,330 C95,390 55,430 75,490"/>
+        <g transform="translate(63,55) rotate(25) scale(1.33,1.25)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(42,115) rotate(-35) scale(1.47,1.38)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(68,175) rotate(20) scale(0.93,0.88)"><path class="vine-leaf gold-tip" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(46,245) rotate(-28) scale(1.33,1.25)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(70,310) rotate(22) scale(1.27,1.12)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(52,380) rotate(-18) scale(0.87,0.75)"><path class="vine-leaf gold-tip" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(74,445) rotate(26) scale(1.20,1.12)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+      </svg>
+      <svg class="vine-layer right" viewBox="0 0 220 520" xmlns="http://www.w3.org/2000/svg">
+        <path class="vine-stroke" d="M60,0 C75,70 40,110 65,170 C90,230 45,270 70,330 C95,390 55,430 75,490"/>
+        <g transform="translate(63,55) rotate(25) scale(1.33,1.25)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(42,115) rotate(-35) scale(1.47,1.38)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(68,175) rotate(20) scale(0.93,0.88)"><path class="vine-leaf gold-tip" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(46,245) rotate(-28) scale(1.33,1.25)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(70,310) rotate(22) scale(1.27,1.12)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+        <g transform="translate(52,380) rotate(-18) scale(0.87,0.75)"><path class="vine-leaf gold-tip" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4 M10,0 L6,3 M10,0 L6,-3"/></g>
+      </svg>
+
+      <div class="hero-content">
+        <p class="eyebrow">Once upon a time</p>
+        <h1 class="names">Kimberly <span class="amp">&amp;</span> Michael</h1>
+        <p class="date">April <span>23</span> 2027 &nbsp;·&nbsp; Camarillo, California</p>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
