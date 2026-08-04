@@ -52,7 +52,7 @@ function initSite(){
   initMapsLink();
 }
 
-// ---- Fireflies: now runs once per section, so they appear throughout the page ----
+// ---- Fireflies: runs once per section, so they appear throughout the page ----
 function initFireflies(){
   addFireflies('.hero', 24, 30, 90);
   addFireflies('.gallery-section', 14, 8, 92);
