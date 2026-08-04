@@ -100,38 +100,132 @@
 
     <!-- SECTION 2: GALLERY -->
     <section class="gallery-section" id="gallery">
-      <p class="section-eyebrow">A few of our favorites</p>
-      <h2 class="section-title">Gallery</h2>
 
-      <div class="gallery-rows">
-        <div class="gallery-row" id="gallery-row-1"></div>
-        <div class="gallery-row" id="gallery-row-2"></div>
-        <div class="gallery-row" id="gallery-row-3"></div>
-        <div class="gallery-row" id="gallery-row-4"></div>
+      <!-- tree silhouette skyline -->
+      <svg class="tree-band" viewBox="0 0 1200 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <g id="pine-tree">
+            <rect class="tree-trunk" x="-6" y="190" width="12" height="30"/>
+            <polygon class="tree-shape" points="-45,190 45,190 0,130"/>
+            <polygon class="tree-shape" points="-35,150 35,150 0,95"/>
+            <polygon class="tree-shape" points="-25,110 25,110 0,60"/>
+          </g>
+        </defs>
+        <use href="#pine-tree" transform="translate(40,0) scale(0.8)"/>
+        <use href="#pine-tree" transform="translate(180,0) scale(1.15)"/>
+        <use href="#pine-tree" transform="translate(330,0) scale(0.9)"/>
+        <use href="#pine-tree" transform="translate(480,0) scale(1.3)"/>
+        <use href="#pine-tree" transform="translate(630,0) scale(0.85)"/>
+        <use href="#pine-tree" transform="translate(780,0) scale(1.2)"/>
+        <use href="#pine-tree" transform="translate(930,0) scale(0.95)"/>
+        <use href="#pine-tree" transform="translate(1080,0) scale(1.1)"/>
+        <use href="#pine-tree" transform="translate(1160,0) scale(0.75)"/>
+      </svg>
+
+      <!-- corner vine accents -->
+      <svg class="section-vine left" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+        <path class="vine-stroke" d="M90,0 C80,50 110,80 85,120 C60,160 100,190 80,230"/>
+        <g transform="translate(85,45) rotate(-28) scale(0.9,0.85)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+        <g transform="translate(105,110) rotate(30) scale(1.0,0.9)"><path class="vine-leaf gold-tip" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+        <g transform="translate(80,190) rotate(-20) scale(0.85,0.8)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+      </svg>
+      <svg class="section-vine right" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+        <path class="vine-stroke" d="M90,0 C80,50 110,80 85,120 C60,160 100,190 80,230"/>
+        <g transform="translate(85,45) rotate(-28) scale(0.9,0.85)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+        <g transform="translate(105,110) rotate(30) scale(1.0,0.9)"><path class="vine-leaf gold-tip" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+        <g transform="translate(80,190) rotate(-20) scale(0.85,0.8)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+      </svg>
+
+      <div class="section-content">
+        <p class="section-eyebrow">A few of our favorites</p>
+        <h2 class="section-title">Gallery</h2>
+
+        <div class="gallery-rows">
+          <div class="gallery-row" id="gallery-row-1"></div>
+          <div class="gallery-row" id="gallery-row-2"></div>
+          <div class="gallery-row" id="gallery-row-3"></div>
+          <div class="gallery-row" id="gallery-row-4"></div>
+        </div>
       </div>
     </section>
 
     <!-- SECTION 3: LOCATION & TIME -->
     <section class="details-section" id="details">
-      <p class="section-eyebrow">Join us</p>
-      <h2 class="section-title">Location &amp; Time</h2>
 
-      <div class="details-content">
-        <p class="details-line"><strong>Ceremony</strong><br>3:00 PM – 4:00 PM</p>
-        <p class="details-line"><strong>Cocktail Hour</strong><br>4:00 PM – 5:00 PM</p>
-        <p class="details-line"><strong>Reception</strong><br>5:00 PM – 11:00 PM</p>
-        <p class="details-line venue-name">Padre Serra Parish</p>
-        <p class="details-line venue-address">Camarillo, CA</p>
+      <svg class="tree-band" viewBox="0 0 1200 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <use href="#pine-tree" transform="translate(40,0) scale(0.8)"/>
+        <use href="#pine-tree" transform="translate(180,0) scale(1.15)"/>
+        <use href="#pine-tree" transform="translate(330,0) scale(0.9)"/>
+        <use href="#pine-tree" transform="translate(480,0) scale(1.3)"/>
+        <use href="#pine-tree" transform="translate(630,0) scale(0.85)"/>
+        <use href="#pine-tree" transform="translate(780,0) scale(1.2)"/>
+        <use href="#pine-tree" transform="translate(930,0) scale(0.95)"/>
+        <use href="#pine-tree" transform="translate(1080,0) scale(1.1)"/>
+        <use href="#pine-tree" transform="translate(1160,0) scale(0.75)"/>
+      </svg>
 
-        <a class="cta-button" id="maps-link" href="#" target="_blank" rel="noopener">Get Directions</a>
+      <svg class="section-vine left" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+        <path class="vine-stroke" d="M90,0 C80,50 110,80 85,120 C60,160 100,190 80,230"/>
+        <g transform="translate(85,45) rotate(-28) scale(0.9,0.85)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+        <g transform="translate(105,110) rotate(30) scale(1.0,0.9)"><path class="vine-leaf gold-tip" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+        <g transform="translate(80,190) rotate(-20) scale(0.85,0.8)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+      </svg>
+      <svg class="section-vine right" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+        <path class="vine-stroke" d="M90,0 C80,50 110,80 85,120 C60,160 100,190 80,230"/>
+        <g transform="translate(85,45) rotate(-28) scale(0.9,0.85)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+        <g transform="translate(105,110) rotate(30) scale(1.0,0.9)"><path class="vine-leaf gold-tip" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+        <g transform="translate(80,190) rotate(-20) scale(0.85,0.8)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+      </svg>
+
+      <div class="section-content">
+        <p class="section-eyebrow">Join us</p>
+        <h2 class="section-title">Location &amp; Time</h2>
+
+        <div class="details-content">
+          <p class="details-line"><strong>Ceremony</strong><br>3:00 PM – 4:00 PM</p>
+          <p class="details-line"><strong>Cocktail Hour</strong><br>4:00 PM – 5:00 PM</p>
+          <p class="details-line"><strong>Reception</strong><br>5:00 PM – 11:00 PM</p>
+          <p class="details-line venue-name">Padre Serra Parish</p>
+          <p class="details-line venue-address">Camarillo, CA</p>
+
+          <a class="cta-button" id="maps-link" href="#" target="_blank" rel="noopener">Get Directions</a>
+        </div>
       </div>
     </section>
 
     <!-- SECTION 4: RSVP -->
     <section class="rsvp-section" id="rsvp">
-      <p class="section-eyebrow">We can't wait to celebrate</p>
-      <h2 class="section-title">RSVP</h2>
-      <p class="coming-soon">Coming soon!</p>
+
+      <svg class="tree-band" viewBox="0 0 1200 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <use href="#pine-tree" transform="translate(40,0) scale(0.8)"/>
+        <use href="#pine-tree" transform="translate(180,0) scale(1.15)"/>
+        <use href="#pine-tree" transform="translate(330,0) scale(0.9)"/>
+        <use href="#pine-tree" transform="translate(480,0) scale(1.3)"/>
+        <use href="#pine-tree" transform="translate(630,0) scale(0.85)"/>
+        <use href="#pine-tree" transform="translate(780,0) scale(1.2)"/>
+        <use href="#pine-tree" transform="translate(930,0) scale(0.95)"/>
+        <use href="#pine-tree" transform="translate(1080,0) scale(1.1)"/>
+        <use href="#pine-tree" transform="translate(1160,0) scale(0.75)"/>
+      </svg>
+
+      <svg class="section-vine left" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+        <path class="vine-stroke" d="M90,0 C80,50 110,80 85,120 C60,160 100,190 80,230"/>
+        <g transform="translate(85,45) rotate(-28) scale(0.9,0.85)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+        <g transform="translate(105,110) rotate(30) scale(1.0,0.9)"><path class="vine-leaf gold-tip" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+        <g transform="translate(80,190) rotate(-20) scale(0.85,0.8)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+      </svg>
+      <svg class="section-vine right" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+        <path class="vine-stroke" d="M90,0 C80,50 110,80 85,120 C60,160 100,190 80,230"/>
+        <g transform="translate(85,45) rotate(-28) scale(0.9,0.85)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+        <g transform="translate(105,110) rotate(30) scale(1.0,0.9)"><path class="vine-leaf gold-tip" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+        <g transform="translate(80,190) rotate(-20) scale(0.85,0.8)"><path class="vine-leaf" d="M-15,0 C-10,8 10,8 15,0 C10,-8 -10,-8 -15,0 Z"/><path class="leaf-vein" d="M-13,0 L13,0 M-5,0 L-9,4 M-5,0 L-9,-4 M3,0 L-1,4 M3,0 L-1,-4"/></g>
+      </svg>
+
+      <div class="section-content">
+        <p class="section-eyebrow">We can't wait to celebrate</p>
+        <h2 class="section-title">RSVP</h2>
+        <p class="coming-soon">Coming soon!</p>
+      </div>
     </section>
 
   </div>

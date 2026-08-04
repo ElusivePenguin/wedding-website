@@ -52,19 +52,26 @@ function initSite(){
   initMapsLink();
 }
 
-// ---- Fireflies ----
+// ---- Fireflies: now runs once per section, so they appear throughout the page ----
 function initFireflies(){
-  const hero = document.querySelector('.hero');
-  const fireflyCount = 24;
+  addFireflies('.hero', 24, 30, 90);
+  addFireflies('.gallery-section', 14, 8, 92);
+  addFireflies('.details-section', 12, 8, 92);
+  addFireflies('.rsvp-section', 12, 8, 92);
+}
 
-  for(let i = 0; i < fireflyCount; i++){
+function addFireflies(containerSelector, count, topMinPercent, topMaxPercent){
+  const container = document.querySelector(containerSelector);
+  if(!container) return;
+
+  for(let i = 0; i < count; i++){
     const f = document.createElement('div');
     f.className = 'firefly';
     f.style.left = (Math.random() * 100) + '%';
-    f.style.top = (30 + Math.random() * 60) + '%';
+    f.style.top = (topMinPercent + Math.random() * (topMaxPercent - topMinPercent)) + '%';
     f.style.animationDelay = (Math.random() * 8) + 's, ' + (Math.random() * 3) + 's';
     f.style.animationDuration = (7 + Math.random() * 6) + 's, ' + (2.5 + Math.random() * 2) + 's';
-    hero.appendChild(f);
+    container.appendChild(f);
   }
 }
 
