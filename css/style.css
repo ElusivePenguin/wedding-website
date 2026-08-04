@@ -12,12 +12,52 @@
   box-sizing:border-box;
 }
 
-body{
-  background: var(--white);
-  font-family: 'Jost', sans-serif;
-  color: var(--fern-deep);
+html{
+  scroll-behavior: smooth;
+  background: #1B2E16;
 }
 
+body{
+  background: #1B2E16;
+  font-family: 'Jost', sans-serif;
+  color: var(--white);
+  overscroll-behavior-y: none;
+}
+
+/* ===== NAVIGATION ===== */
+.site-nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  padding: 18px 20px;
+  background: rgba(27,46,22,0.55);
+  backdrop-filter: blur(6px);
+}
+
+.site-nav a{
+  font-family: 'Tenor Sans', sans-serif;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--highlight);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.site-nav a:hover{
+  color: var(--gold);
+}
+
+section{
+  scroll-margin-top: 64px;
+}
+
+/* ===== HERO ===== */
 .hero{
   position: relative;
   height: 100vh;
@@ -45,7 +85,7 @@ body{
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-weight: 400;
-  font-size: 1.5rem;        /* was 1.15rem */
+  font-size: 1.5rem;
   letter-spacing: 0.12em;
   color: var(--highlight);
 }
@@ -68,8 +108,8 @@ body{
 
 .date{
   font-family: 'Tenor Sans', sans-serif;
-  letter-spacing: 0.28em;   /* slightly reduced so it doesn't feel too stretched */
-  font-size: 1.05rem;       /* was 0.82rem */
+  letter-spacing: 0.28em;
+  font-size: 1.05rem;
   text-transform: uppercase;
   color: var(--highlight);
   margin-top: 26px;
@@ -104,7 +144,7 @@ body{
 
 .vine-stroke{
   stroke: #1F3018;
-  stroke-width: 2.2;  
+  stroke-width: 2.2;
   fill: none;
   opacity: 0.85;
 }
@@ -144,32 +184,139 @@ body{
   50%{ opacity: 0.9; }
 }
 
-.rune-mark-wrap{
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  z-index: 2;
-  opacity: 0;
-  animation: runeGlow 7s ease-in-out infinite;
-  pointer-events: none;
-}
-.rune-mark{
-  stroke: var(--gold);
-  stroke-width: 2.2;
-  fill: none;
-  opacity: 0.8;
-  stroke-linecap: round;
-  filter: drop-shadow(0 0 3px rgba(212,175,55,0.5));
-}
-.rune-mark-wrap .rune-dot{
-  fill: var(--gold);
-  opacity: 0.8;
-}
-@keyframes runeGlow{
-  0%, 100%{ opacity: 0.35; }
-  50%{ opacity: 0.9; }
+/* ===== SHARED SECTION STYLING ===== */
+.gallery-section,
+.details-section,
+.rsvp-section{
+  position: relative;
+  padding: 100px 24px;
+  text-align: center;
+  background: linear-gradient(165deg, #24391e 0%, #2E4A26 50%, #1B2E16 100%);
 }
 
+.section-eyebrow{
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--highlight);
+  margin-bottom: 6px;
+}
+
+.section-title{
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  color: var(--white);
+  margin-bottom: 50px;
+}
+
+/* ===== GALLERY ===== */
+.gallery-rows{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.gallery-row{
+  display: flex;
+  gap: 14px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.gallery-row img{
+  height: 180px;
+  width: auto;
+  border-radius: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.gallery-track{
+  display: flex;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.gallery-row:nth-child(1) .gallery-track{ animation: scrollLeft 40s linear infinite; }
+.gallery-row:nth-child(2) .gallery-track{ animation: scrollRight 46s linear infinite; }
+.gallery-row:nth-child(3) .gallery-track{ animation: scrollLeft 34s linear infinite; }
+.gallery-row:nth-child(4) .gallery-track{ animation: scrollRight 50s linear infinite; }
+
+@keyframes scrollLeft{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+@keyframes scrollRight{
+  from{ transform: translateX(-50%); }
+  to{ transform: translateX(0); }
+}
+
+/* ===== DETAILS ===== */
+.details-content{
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.details-line{
+  font-family: 'Jost', sans-serif;
+  font-size: 1rem;
+  color: var(--highlight);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.details-line strong{
+  font-family: 'Tenor Sans', sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.venue-name{
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  color: var(--white);
+  margin-top: 30px;
+  margin-bottom: 4px;
+}
+
+.venue-address{
+  font-size: 0.95rem;
+}
+
+.cta-button{
+  display: inline-block;
+  margin-top: 20px;
+  font-family: 'Tenor Sans', sans-serif;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding: 14px 36px;
+  background: var(--gold);
+  color: var(--fern-deep);
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.cta-button:hover{
+  opacity: 0.85;
+}
+
+/* ===== RSVP ===== */
+.coming-soon{
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--highlight);
+}
+
+/* ===== PASSWORD GATE ===== */
 .gate{
   position: fixed;
   inset: 0;
