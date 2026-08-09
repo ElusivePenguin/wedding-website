@@ -260,11 +260,6 @@ section{
   flex-shrink: 0;
 }
 
-.gallery-row:nth-child(1) .gallery-track{ animation: scrollLeft 40s linear infinite; }
-.gallery-row:nth-child(2) .gallery-track{ animation: scrollRight 46s linear infinite; }
-.gallery-row:nth-child(3) .gallery-track{ animation: scrollLeft 34s linear infinite; }
-.gallery-row:nth-child(4) .gallery-track{ animation: scrollRight 50s linear infinite; }
-
 @keyframes scrollLeft{
   from{ transform: translateX(0); }
   to{ transform: translateX(-50%); }

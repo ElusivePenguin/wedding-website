@@ -52,7 +52,7 @@ function initSite(){
   initMapsLink();
 }
 
-// ---- Fireflies: runs once per section, so they appear throughout the page ----
+// ---- Fireflies ----
 function initFireflies(){
   addFireflies('.hero', 24, 30, 90);
   addFireflies('.gallery-section', 14, 8, 92);
@@ -75,7 +75,7 @@ function addFireflies(containerSelector, count, topMinPercent, topMaxPercent){
   }
 }
 
-// ---- Gallery: now pulls real photos from your Google Drive "Website Photos" folder ----
+// ---- Gallery: pulls real photos from Google Drive "Website Photos" folder ----
 function initGallery(){
   fetch(`${SCRIPT_URL}?action=gallery`)
     .then(res => res.json())
@@ -99,6 +99,9 @@ function buildGalleryRows(photoUrls){
     groups[i % 4].push(url);
   });
 
+  // rows alternate scroll direction for visual variety
+  const directions = ['scrollLeft', 'scrollRight', 'scrollLeft', 'scrollRight'];
+
   for(let rowNum = 1; rowNum <= 4; rowNum++){
     const row = document.getElementById(`gallery-row-${rowNum}`);
     const groupImages = groups[rowNum - 1];
@@ -118,6 +121,11 @@ function buildGalleryRows(photoUrls){
       img.alt = "Wedding photo";
       track.appendChild(img);
     });
+
+    // speed scales with photo count so pace feels consistent
+    // regardless of how many photos are in the folder
+    const seconds = Math.max(30, groupImages.length * 7);
+    track.style.animation = `${directions[rowNum - 1]} ${seconds}s linear infinite`;
 
     row.appendChild(track);
   }
