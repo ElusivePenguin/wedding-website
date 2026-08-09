@@ -325,6 +325,16 @@ section{
   opacity: 0.85;
 }
 
+.one-location-note{
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--gold);
+  max-width: 380px;
+  margin: 8px auto 34px;
+  line-height: 1.5;
+}
+
 /* ===== RSVP ===== */
 .coming-soon{
   font-family: 'Cormorant Garamond', serif;
