@@ -76,12 +76,15 @@ function addFireflies(containerSelector, count, topMinPercent, topMaxPercent){
 }
 
 // ---- Gallery: pulls real photos from Google Drive "Website Photos" folder ----
+// Images are now served through the Apps Script itself (not linked directly to Drive),
+// which is more reliable and lets the folder stay private.
 function initGallery(){
   fetch(`${SCRIPT_URL}?action=gallery`)
     .then(res => res.json())
     .then(data => {
-      if(data.status === "success" && data.photos.length > 0){
-        buildGalleryRows(data.photos);
+      if(data.status === "success" && data.photoIds.length > 0){
+        const photoUrls = data.photoIds.map(id => `${SCRIPT_URL}?action=image&id=${id}`);
+        buildGalleryRows(photoUrls);
       } else {
         console.warn("No gallery photos found.");
       }
