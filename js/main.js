@@ -82,9 +82,8 @@ function initGallery(){
   fetch(`${SCRIPT_URL}?action=gallery`)
     .then(res => res.json())
     .then(data => {
-      if(data.status === "success" && data.photoIds.length > 0){
-        const photoUrls = data.photoIds.map(id => `${SCRIPT_URL}?action=image&id=${id}`);
-        buildGalleryRows(photoUrls);
+      if(data.status === "success" && data.photos.length > 0){
+        buildGalleryRows(data.photos);
       } else {
         console.warn("No gallery photos found.");
       }
