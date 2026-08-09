@@ -75,45 +75,41 @@ function addFireflies(containerSelector, count, topMinPercent, topMaxPercent){
   }
 }
 
-// ---- Gallery ----
-// PLACEHOLDER photos for now - replace this array later with real
-// Google Drive "C" (rotating pool) photo URLs once that's wired up.
-// Split into 4 disjoint groups so the same photo never appears in two rows at once.
-const galleryPhotos = [
-  "https://picsum.photos/seed/wed01/320/220",
-  "https://picsum.photos/seed/wed02/320/220",
-  "https://picsum.photos/seed/wed03/320/220",
-  "https://picsum.photos/seed/wed04/320/220",
-  "https://picsum.photos/seed/wed05/320/220",
-  "https://picsum.photos/seed/wed06/320/220",
-  "https://picsum.photos/seed/wed07/320/220",
-  "https://picsum.photos/seed/wed08/320/220",
-  "https://picsum.photos/seed/wed09/320/220",
-  "https://picsum.photos/seed/wed10/320/220",
-  "https://picsum.photos/seed/wed11/320/220",
-  "https://picsum.photos/seed/wed12/320/220",
-  "https://picsum.photos/seed/wed13/320/220",
-  "https://picsum.photos/seed/wed14/320/220",
-  "https://picsum.photos/seed/wed15/320/220",
-  "https://picsum.photos/seed/wed16/320/220",
-  "https://picsum.photos/seed/wed17/320/220",
-  "https://picsum.photos/seed/wed18/320/220",
-  "https://picsum.photos/seed/wed19/320/220",
-  "https://picsum.photos/seed/wed20/320/220"
-];
-
+// ---- Gallery: now pulls real photos from your Google Drive "Website Photos" folder ----
 function initGallery(){
+  fetch(`${SCRIPT_URL}?action=gallery`)
+    .then(res => res.json())
+    .then(data => {
+      if(data.status === "success" && data.photos.length > 0){
+        buildGalleryRows(data.photos);
+      } else {
+        console.warn("No gallery photos found.");
+      }
+    })
+    .catch(err => {
+      console.error("Failed to load gallery photos:", err);
+    });
+}
+
+function buildGalleryRows(photoUrls){
+  // split photos into 4 disjoint groups so the same photo never
+  // appears in two rows at the same time
   const groups = [[], [], [], []];
-  galleryPhotos.forEach((url, i) => {
+  photoUrls.forEach((url, i) => {
     groups[i % 4].push(url);
   });
 
   for(let rowNum = 1; rowNum <= 4; rowNum++){
     const row = document.getElementById(`gallery-row-${rowNum}`);
+    const groupImages = groups[rowNum - 1];
+
+    if(groupImages.length === 0) continue;
+
     const track = document.createElement('div');
     track.className = 'gallery-track';
 
-    const groupImages = groups[rowNum - 1];
+    // duplicate the group's images twice back-to-back so the
+    // scrolling animation (translateX to -50%) loops seamlessly
     const doubled = groupImages.concat(groupImages);
 
     doubled.forEach(url => {
