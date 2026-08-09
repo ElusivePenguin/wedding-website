@@ -417,3 +417,27 @@ section{
 .hidden{
   display: none !important;
 }
+
+.site-footer{
+  text-align: center;
+  padding: 24px;
+  background: #1B2E16;
+}
+
+.site-footer a{
+  font-family: 'Tenor Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: rgba(230,223,211,0.4);
+  text-decoration: none;
+}
+
+.site-footer a:hover{
+  color: var(--gold);
+}
+
+.site-footer span{
+  color: rgba(230,223,211,0.25);
+  margin: 0 10px;
+  font-size: 0.7rem;
+}
