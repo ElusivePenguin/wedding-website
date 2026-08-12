@@ -8,6 +8,12 @@ const gateButton = document.getElementById('gate-button');
 const gateError = document.getElementById('gate-error');
 const site = document.getElementById('site');
 
+// pulls the group slug out of the URL, e.g. dulocwasbooked.us/weazal -> "weazal"
+function getGroupSlugFromUrl(){
+  const path = window.location.pathname.replace(/^\/|\/$/g, ''); // strip leading/trailing slashes
+  return path; // empty string if visiting the bare domain
+}
+
 function checkPassword(){
   const pw = gateInput.value.trim();
   if(!pw){
@@ -19,7 +25,9 @@ function checkPassword(){
   gateButton.textContent = "Checking...";
   gateError.textContent = "";
 
-  fetch(`${SCRIPT_URL}?password=${encodeURIComponent(pw)}`)
+  const slug = getGroupSlugFromUrl();
+
+  fetch(`${SCRIPT_URL}?password=${encodeURIComponent(pw)}&slug=${encodeURIComponent(slug)}`)
     .then(res => res.json())
     .then(data => {
       if(data.status === "success"){
@@ -75,9 +83,7 @@ function addFireflies(containerSelector, count, topMinPercent, topMaxPercent){
   }
 }
 
-// ---- Gallery: pulls real photos from Google Drive "Website Photos" folder ----
-// Images are now served through the Apps Script itself (not linked directly to Drive),
-// which is more reliable and lets the folder stay private.
+// ---- Gallery ----
 function initGallery(){
   fetch(`${SCRIPT_URL}?action=gallery`)
     .then(res => res.json())
@@ -94,14 +100,11 @@ function initGallery(){
 }
 
 function buildGalleryRows(photoUrls){
-  // split photos into 4 disjoint groups so the same photo never
-  // appears in two rows at the same time
   const groups = [[], [], [], []];
   photoUrls.forEach((url, i) => {
     groups[i % 4].push(url);
   });
 
-  // rows alternate scroll direction for visual variety
   const directions = ['scrollLeft', 'scrollRight', 'scrollLeft', 'scrollRight'];
 
   for(let rowNum = 1; rowNum <= 4; rowNum++){
@@ -113,8 +116,6 @@ function buildGalleryRows(photoUrls){
     const track = document.createElement('div');
     track.className = 'gallery-track';
 
-    // duplicate the group's images twice back-to-back so the
-    // scrolling animation (translateX to -50%) loops seamlessly
     const doubled = groupImages.concat(groupImages);
 
     doubled.forEach(url => {
@@ -124,8 +125,6 @@ function buildGalleryRows(photoUrls){
       track.appendChild(img);
     });
 
-    // speed scales with photo count so pace feels consistent
-    // regardless of how many photos are in the folder
     const seconds = Math.max(30, groupImages.length * 7);
     track.style.animation = `${directions[rowNum - 1]} ${seconds}s linear infinite`;
 

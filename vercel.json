@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/((?!css/|js/|privacy.html|terms.html|favicon).*)", "destination": "/index.html" }
+  ]
+}
