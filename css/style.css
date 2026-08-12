@@ -414,6 +414,23 @@ section{
   min-height: 1.2em;
 }
 
+.gate-disclosure{
+  margin-top: 28px;
+  max-width: 340px;
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: rgba(230,223,211,0.45);
+}
+
+.gate-disclosure a{
+  color: rgba(212,175,55,0.7);
+  text-decoration: underline;
+}
+
+.gate-disclosure a:hover{
+  color: var(--gold);
+}
+
 .hidden{
   display: none !important;
 }
