@@ -100,12 +100,18 @@ function initGallery(){
 }
 
 function buildGalleryRows(photoUrls){
+  // smaller thumbnails: photos only display ~240x180, so w480 is plenty sharp
+  const smallUrls = photoUrls.map(url => url.replace('=w1000', '=w480'));
+
   const groups = [[], [], [], []];
-  photoUrls.forEach((url, i) => {
+  smallUrls.forEach((url, i) => {
     groups[i % 4].push(url);
   });
 
   const directions = ['scrollLeft', 'scrollRight', 'scrollLeft', 'scrollRight'];
+
+  // each item = one photo plus its two <img> slots (original + seamless-loop copy)
+  const rowItems = [[], [], [], []];
 
   for(let rowNum = 1; rowNum <= 4; rowNum++){
     const row = document.getElementById(`gallery-row-${rowNum}`);
@@ -116,13 +122,25 @@ function buildGalleryRows(photoUrls){
     const track = document.createElement('div');
     track.className = 'gallery-track';
 
-    const doubled = groupImages.concat(groupImages);
+    const firstHalf = [];
+    const secondHalf = [];
 
-    doubled.forEach(url => {
+    // images are created empty; the loader below fills in src as each photo arrives
+    groupImages.forEach(() => {
       const img = document.createElement('img');
-      img.src = url;
-      img.alt = "Wedding photo";
+      img.alt = "";
+      firstHalf.push(img);
       track.appendChild(img);
+    });
+    groupImages.forEach(() => {
+      const img = document.createElement('img');
+      img.alt = "";
+      secondHalf.push(img);
+      track.appendChild(img);
+    });
+
+    groupImages.forEach((url, i) => {
+      rowItems[rowNum - 1].push({ url: url, imgs: [firstHalf[i], secondHalf[i]] });
     });
 
     const seconds = Math.max(30, groupImages.length * 7);
@@ -130,6 +148,56 @@ function buildGalleryRows(photoUrls){
 
     row.appendChild(track);
   }
+
+  // interleave across rows so all 4 rows fill in left-to-right together
+  const queue = [];
+  const maxLen = Math.max(...rowItems.map(r => r.length));
+  for(let i = 0; i < maxLen; i++){
+    for(let r = 0; r < 4; r++){
+      if(rowItems[r][i]) queue.push(rowItems[r][i]);
+    }
+  }
+
+  loadGalleryImages(queue, 8);
+}
+
+// loads photos as a steady stream (not one big burst), retrying any that fail
+function loadGalleryImages(items, concurrency){
+  let next = 0;
+  let active = 0;
+
+  function pump(){
+    while(active < concurrency && next < items.length){
+      active++;
+      attempt(items[next++], 0);
+    }
+  }
+
+  function attempt(item, tries){
+    const probe = new Image();
+
+    probe.onload = function(){
+      item.imgs.forEach(img => {
+        img.src = item.url;   // served instantly from the browser cache
+        img.alt = "Wedding photo";
+      });
+      active--;
+      pump();
+    };
+
+    probe.onerror = function(){
+      if(tries < 2){
+        setTimeout(() => attempt(item, tries + 1), 1500 * (tries + 1));
+      } else {
+        active--;   // give up on this one so it doesn't block the others
+        pump();
+      }
+    };
+
+    probe.src = item.url;
+  }
+
+  pump();
 }
 
 // ---- Details: Google Maps link ----
