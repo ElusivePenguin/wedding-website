@@ -248,18 +248,15 @@ section{
 
 .gallery-row img{
   height: 180px;
-  width: 240px;
-  object-fit: cover;
+  width: auto;
   border-radius: 6px;
   flex-shrink: 0;
-  background: rgba(249,249,246,0.06);
   box-shadow: 0 4px 16px rgba(0,0,0,0.3);
 }
 
 .gallery-track{
   display: flex;
   gap: 14px;
-  padding-right: 14px;
   flex-shrink: 0;
 }
 
