@@ -99,38 +99,86 @@ function initGallery(){
     });
 }
 
-function buildGalleryRows(photoUrls){
+
+function buildGalleryRows(photoUrls) {
   const groups = [[], [], [], []];
+
   photoUrls.forEach((url, i) => {
-    groups[i % 4].push(url);
+    if (typeof url === "string" && url.trim()) {
+      groups[i % 4].push(url);
+    }
   });
 
-  const directions = ['scrollLeft', 'scrollRight', 'scrollLeft', 'scrollRight'];
+  const directions = [
+    "scrollLeft",
+    "scrollRight",
+    "scrollLeft",
+    "scrollRight"
+  ];
 
-  for(let rowNum = 1; rowNum <= 4; rowNum++){
+  for (let rowNum = 1; rowNum <= 4; rowNum++) {
     const row = document.getElementById(`gallery-row-${rowNum}`);
     const groupImages = groups[rowNum - 1];
 
-    if(groupImages.length === 0) continue;
+    if (!row || groupImages.length === 0) continue;
 
-    const track = document.createElement('div');
-    track.className = 'gallery-track';
+    const track = document.createElement("div");
+    track.className = "gallery-track";
+    track.style.visibility = "hidden";
 
-    const doubled = groupImages.concat(groupImages);
-
-    doubled.forEach(url => {
-      const img = document.createElement('img');
+    const images = groupImages.map(url => {
+      const img = document.createElement("img");
       img.src = url;
       img.alt = "Wedding photo";
+      img.loading = "eager";
+      img.decoding = "async";
+      img.draggable = false;
+
+      // Avoid a broken image icon if a URL fails.
+      img.onerror = () => {
+        img.remove();
+        console.error("Gallery image failed to load:", url);
+      };
+
       track.appendChild(img);
+      return img;
     });
 
-    const seconds = Math.max(30, groupImages.length * 7);
-    track.style.animation = `${directions[rowNum - 1]} ${seconds}s linear infinite`;
+    row.replaceChildren(track);
 
-    row.appendChild(track);
+    // Wait for image loading to settle before starting animation.
+    Promise.all(images.map(img => {
+      if (img.complete) return Promise.resolve();
+
+      return new Promise(resolve => {
+        img.addEventListener("load", resolve, { once: true });
+        img.addEventListener("error", resolve, { once: true });
+      });
+    })).then(() => {
+      const loadedImages = Array.from(track.children);
+
+      if (loadedImages.length === 0) {
+        track.style.visibility = "visible";
+        return;
+      }
+
+      // Duplicate the successfully loaded images for the loop.
+      loadedImages.forEach(img => {
+        const clone = img.cloneNode(true);
+        clone.onerror = () => clone.remove();
+        track.appendChild(clone);
+      });
+
+      const seconds = Math.max(30, loadedImages.length * 7);
+
+      track.style.animation =
+        `${directions[rowNum - 1]} ${seconds}s linear infinite`;
+
+      track.style.visibility = "visible";
+    });
   }
 }
+
 
 // ---- Details: Google Maps link ----
 function initMapsLink(){

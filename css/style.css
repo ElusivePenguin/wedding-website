@@ -458,3 +458,41 @@ section{
   margin: 0 10px;
   font-size: 0.7rem;
 }
+
+
+/* Gallery reliability on mobile browsers */
+.gallery-row {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.gallery-track {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: max-content;
+  gap: 14px;
+  flex-shrink: 0;
+  will-change: transform;
+  -webkit-transform: translateZ(0);
+}
+
+.gallery-track img {
+  display: block;
+  height: 180px;
+  width: auto;
+  max-width: none;
+  flex-shrink: 0;
+  object-fit: cover;
+  -webkit-user-drag: none;
+}
+
+/* Respect users who disable motion */
+@media (prefers-reduced-motion: reduce) {
+  .gallery-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}
